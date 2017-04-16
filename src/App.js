@@ -26,13 +26,33 @@ function isComplitedItem(item){
 const filterButtons = {'all': showAllItems, 
 						'active': isActiveItem, 
 						'complited': isComplitedItem};
+						
+						
+function createStore(){
+	if (typeof(Storage) !== "undefined") {
+		if (localStorage.listItems) {
+			console.log("Local Storage? It's possible.");
+			return JSON.parse(localStorage.listItems);
+		} else {
+			const initState = {
+			value: '', 
+			list:[], 
+			groupItems: 'all' };
+			localStorage.setItem("listItems", JSON.stringify(initState));
+			return initState;
+		}		
+    } else {
+            console.log("Sorry! No Web Storage support..");
+        }
+}
 
 class App extends Component {
 
     constructor(props) {
         super(props);
-        this.state = {value: '', list:[], groupItems: showAllItems };
-
+		//localStorage.clear();
+        this.state = createStore();
+		
         this.handleChange = this.handleChange.bind(this);
         this.handleAddItem = this.handleAddItem.bind(this);
         this.handleKeyPress = this.handleKeyPress.bind(this);
@@ -41,7 +61,11 @@ class App extends Component {
 		this.showAmountCheckedItems = this.showAmountCheckedItems.bind(this);
 		this.handleClickFilterButton = this.handleClickFilterButton.bind(this);
 	}
-
+	
+	componentDidMount(){
+		localStorage.setItem("listItems", JSON.stringify(this.state));
+	}
+	
     handleChange(event){
         this.setState({value: event.target.value});
     }
@@ -73,8 +97,6 @@ class App extends Component {
             }
             return {list};
         });
-        //console.log(this.state.list);
-        //console.log("Execute handleRemoveItem");
     }
 	
 	handleCheckItem(index){
@@ -95,10 +117,11 @@ class App extends Component {
 	
 	handleClickFilterButton(event){
 		const whatButton = event.target.value;
-		this.setState({groupItems: filterButtons[whatButton]});
+		this.setState({groupItems: whatButton});
 	}
 
    render() {
+	 localStorage.setItem("listItems", JSON.stringify(this.state));
      return (
       <div className="App">
         <div className="App-header">
@@ -110,12 +133,15 @@ class App extends Component {
                         onClick={this.handleAddItem}/>
         </div>
         <div className="App-intro">
-          <ListSection state={this.state} 
+          <ListSection list={this.state.list}
+				groupItems={filterButtons[this.state.groupItems]}
 		       onClickX={this.handleRemoveItem} 
 			   onChange={this.handleCheckItem} />
         </div>
         <div className="App-footer">
-          <OutputDataSection amountChecked={this.showAmountCheckedItems()} onClick={this.handleClickFilterButton} />
+          <OutputDataSection 
+		  amountChecked={this.showAmountCheckedItems()} 
+		  onClick={this.handleClickFilterButton} />
         </div>
       </div>
     );

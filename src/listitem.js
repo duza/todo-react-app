@@ -12,8 +12,6 @@ export default class ListItem extends Component{
 	}
     handleOnClickX() {
         const index = this.props.id;
-        //console.log(index);
-        console.log(this.props.id);
         this.props.onClickX(index);
     }
 	handleOnChange(){

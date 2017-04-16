@@ -11,15 +11,15 @@ export default class AddButton extends Component{
     }
 
     handleClick(){
-        console.log("Execute handleClick");
         this.props.onClick();
     }
 
     render() {
-        console.log(this.props.onClick);
         return (
             <div>
-                <button onClick={this.handleClick}>
+                <button 
+				onClick={this.handleClick} 
+				type="submit">
                     Add
                 </button>
             </div>

@@ -10,10 +10,10 @@ export default class InputItem extends Component{
         const handleChange = this.props.onChange;
         const handleKeyPress = this.props.onKeyPress;
         const focus = this.props.autoFocus;
-        console.log(value, handleChange, this.props.onKeyPress);
         return (
             <div>
                 <input type="text" className=""
+					   placeholder="Enter item"
                        value={value} autoFocus={focus}
                        onKeyPress={handleKeyPress}
                        onChange={handleChange} />

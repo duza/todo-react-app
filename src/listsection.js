@@ -8,9 +8,8 @@ export default class ListSection extends Component{
 
     render() {
         const handleRemoveItem = this.props.onClickX;
-        const stateApp = this.props.state;
-        const showGroupItems = stateApp.groupItems;//function which filter All items (decide with press button)
-        const listAllItems = stateApp.list;
+        const showGroupItems = this.props.groupItems;//value function which filter All items (decide with press button)
+        const listAllItems = this.props.list;
         const filteredList = listAllItems.filter(showGroupItems);
         const listItems = filteredList.map((item, index) =>
             <ListItem key={index}
