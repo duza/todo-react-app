@@ -125,7 +125,6 @@ class App extends Component {
      return (
       <div className="App">
         <div className="App-header">
-          <h2>Welcome to React ToDo</h2>
           <InputSection value={this.state.value}
                         onKeyPress={this.handleKeyPress}
                         onChange={this.handleChange}
@@ -139,7 +138,7 @@ class App extends Component {
 			   onChange={this.handleCheckItem} />
         </div>
         <div className="App-footer">
-          <OutputDataSection 
+          <OutputDataSection groupItems={this.state.groupItems}
 		  amountChecked={this.showAmountCheckedItems()} 
 		  onClick={this.handleClickFilterButton} />
         </div>

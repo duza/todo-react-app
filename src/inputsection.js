@@ -9,7 +9,7 @@ export default class InputSection extends Component{
 
     render() {
         return (
-            <div>
+            <div className="flex-container">
                 <InputItem value={this.props.value}
                            onKeyPress={this.props.onKeyPress}
                            onChange={this.props.onChange}

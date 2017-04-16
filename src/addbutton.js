@@ -16,13 +16,11 @@ export default class AddButton extends Component{
 
     render() {
         return (
-            <div>
-                <button 
+               <button className="right" 
 				onClick={this.handleClick} 
 				type="submit">
                     Add
                 </button>
-            </div>
-        );
+           );
     }
 }

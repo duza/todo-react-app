@@ -11,13 +11,11 @@ export default class InputItem extends Component{
         const handleKeyPress = this.props.onKeyPress;
         const focus = this.props.autoFocus;
         return (
-            <div>
-                <input type="text" className=""
+            <input className="left" type="text"
 					   placeholder="Enter item"
                        value={value} autoFocus={focus}
                        onKeyPress={handleKeyPress}
                        onChange={handleChange} />
-            </div>
-        );
+            );
     }
 }

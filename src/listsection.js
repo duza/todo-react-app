@@ -15,7 +15,7 @@ export default class ListSection extends Component{
             <ListItem key={index}
                       value={item.value} id={index}
                       onClickX={handleRemoveItem} 
-					  checked={item.checked} 
+					  checked={item.checked}
 					  onChange={this.props.onChange} />
         );
         return (

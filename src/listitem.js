@@ -22,11 +22,14 @@ export default class ListItem extends Component{
     render() {
         return (
             <li id={this.props.id}>
-                <label>
-                    <input type="checkbox" checked={this.props.checked} onChange={this.handleOnChange} />
+                <label className={ this.props.checked ? "checked" : "unchecked"}>
+                    <input type="checkbox"  
+					checked={this.props.checked} 
+					onChange={this.handleOnChange} 
+					/>
                         {this.props.value}
                 </label>
-                <span onClick={this.handleOnClickX}>
+                <span onClick={this.handleOnClickX} className="close">
                     {'\u00D7'}
                 </span>
             </li>

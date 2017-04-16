@@ -1,25 +1,73 @@
-/*.App {
-  text-align: center;
+* {
+    box-sizing: border-box;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+body {
+	margin:0;
+	padding:0;
+    color: black;
+}
+h2{
+	text-align: center;
+}
+.left {
+	text-size: 2em;
+    text-align: left;
+    width: 90%;
+    background-color: #d3d3d3;
 }
 
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
+.right {
+    text-size: 2em;
+	text-align: center;
+    width: 10%;
+    color: black;
+}
+.App-footer, .flex-container{
+	height:2.5em;
+	display: -webkit-flex;
+    display: flex;
+    width: 100%
+}
+ol, ul, li{
+list-style-type: none;
+}
+.App-footer > div > div{
+	width: 25%;
+	color: black;
+
 }
 
-.App-intro {
-  font-size: large;
+span{
+   padding: 2px 2px 0px 20px;
+   cursor: pointer;
 }
 
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+/* Style the list items */
+ul li {
+    cursor: pointer;
+    background: #eee;
+    transition: 0.2s;
+	font-size: 1em;
 }
-*/
+
+/* Set all odd list items to a different color (zebra-stripes) */
+ul li:nth-child(odd) {
+    background: #f9f9f9;
+}
+
+/* Darker background-color on hover */
+ul li:hover {
+    background: #ddd;
+}
+
+/* When clicked on, add a background color and strike out text */
+.checked {
+    background: #888;
+    color: #ddd;
+    text-decoration: line-through;
+}
+.App-footer button {
+	height:2.5em;
+	width:100%;
+}

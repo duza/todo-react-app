@@ -9,11 +9,28 @@ export default class OutputDataSection extends Component{
 		var result = `${amount > 0 ? amount : 'Not' } checked item${amount === 1 ? '' : 's'}`;
 		const handleClick = this.props.onClick;
         return (
-        <div>
-			<div>{result}</div>
-			<button onClick={handleClick} value="all">All</button>
-			<button onClick={handleClick} value="active">Active</button>
-			<button onClick={handleClick} value="complited">Complited</button>
+        <div className="flex-container">
+			<div className="Btn">
+				{this.props.groupItems === 'all' ? result : null }
+			</div>
+			<div>
+				<button onClick={handleClick} 
+				value="all" className="Btn">
+					All
+				</button>
+			</div>
+			<div>
+				<button onClick={handleClick}
+				value="active" className="Btn">
+				Active
+				</button>
+			</div>
+			<div>
+				<button onClick={handleClick} 
+				value="complited" className="Btn">
+				Complited
+				</button>
+			</div>
 		</div>
         );
     }
