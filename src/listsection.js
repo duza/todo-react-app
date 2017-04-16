@@ -8,15 +8,16 @@ export default class ListSection extends Component{
 
     render() {
         const handleRemoveItem = this.props.onClickX;
-        console.log(handleRemoveItem);
         const stateApp = this.props.state;
-        const filterBy = stateApp.groupItems;//function which filter All items (decide with press button)
+        const showGroupItems = stateApp.groupItems;//function which filter All items (decide with press button)
         const listAllItems = stateApp.list;
-        const filteredList = listAllItems.map(filterBy);
+        const filteredList = listAllItems.filter(showGroupItems);
         const listItems = filteredList.map((item, index) =>
             <ListItem key={index}
-                      value={item} id={index}
-                      onClickX={handleRemoveItem} />
+                      value={item.value} id={index}
+                      onClickX={handleRemoveItem} 
+					  checked={item.checked} 
+					  onChange={this.props.onChange} />
         );
         return (
         <div>

@@ -8,19 +8,24 @@ export default class ListItem extends Component{
         super(props);
 
         this.handleOnClickX = this.handleOnClickX.bind(this);
-    }
+		this.handleOnChange = this.handleOnChange.bind(this);
+	}
     handleOnClickX() {
         const index = this.props.id;
-        console.log(index);
+        //console.log(index);
         console.log(this.props.id);
         this.props.onClickX(index);
     }
+	handleOnChange(){
+		const index = this.props.id;
+		this.props.onChange(index);
+	}
 
     render() {
         return (
             <li id={this.props.id}>
                 <label>
-                    <input type="checkbox" />
+                    <input type="checkbox" checked={this.props.checked} onChange={this.handleOnChange} />
                         {this.props.value}
                 </label>
                 <span onClick={this.handleOnClickX}>
