@@ -3,22 +3,23 @@
 }
 
 body {
-	margin:0;
-	padding:0;
+    margin: 0;
+    padding: 0;
     color: black;
 }
+
 h2{
 	text-align: center;
 }
 .left {
-	text-size: 2em;
+    font-size: 2em;
     text-align: left;
     width: 90%;
     background-color: #d3d3d3;
 }
 
 .right {
-    text-size: 2em;
+    font-size: 2em;
 	text-align: center;
     width: 10%;
     color: black;
@@ -70,4 +71,5 @@ ul li:hover {
 .App-footer button {
 	height:2.5em;
 	width:100%;
+    font-size:1.5em;
 }

@@ -73,9 +73,12 @@ class App extends Component {
     handleAddItem() {
         this.setState(prevState => {
             const list = prevState.list;
-            const item = this.state.value;
-            if (item.trim() !== '') {
-                list.push({value: item, checked: false});
+            const item = this.state.value.trim();
+            if ((item !== '') && !(list.map(x => x.value).includes(item))) {
+                list.push({value: item.trim(), checked: false});
+            }
+            else {
+                alert("Sorry. Please enter a correct item.");
             }
             return {value:'',list};
         });
